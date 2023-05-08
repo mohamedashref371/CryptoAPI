@@ -490,7 +490,7 @@ Public Class CryptoAPI
     Function VigenèreCipher(text As Byte(), key As Byte(), encrypt As Boolean, autoKey As Boolean) As Byte()
         Dim temp As New List(Of Byte)
         For i = 0 To text.Length - 1
-            If encrypt And autoKey And i <= text.Length - key.Length Then
+            If encrypt And autoKey And i < text.Length - key.Length Then
                 temp.Add(text(i))
             End If
             If autoKey And i >= key.Length Then
